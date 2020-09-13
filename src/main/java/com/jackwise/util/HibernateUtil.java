@@ -22,7 +22,7 @@ public class HibernateUtil {
                 Map<String,String> jdbcUrlSettings = new HashMap<>();
                 String jdbcDbUrl = System.getenv("CLEARDB_DATABASE_URL");
                 if (null != jdbcDbUrl) {
-                    jdbcUrlSettings.put("hibernate.connection.url", System.getenv("JDBC_DATABASE_URL"));
+                    jdbcUrlSettings.put("hibernate.connection.url", jdbcDbUrl);
                 }
                 standardServiceRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml")
                         .applySettings(jdbcUrlSettings).build();
