@@ -14,18 +14,20 @@ public class HibernateUtil {
     private static StandardServiceRegistry standardServiceRegistry;
     private static SessionFactory sessionFactory;
 
-    static {
-        try {
 
+    public static SessionFactory getSessionFactory() {
+
+        try {
             if (sessionFactory == null) {
 
                 Map<String,String> jdbcUrlSettings = new HashMap<>();
-                String jdbcDbUrl = System.getenv("CLEARDB_DATABASE_URL");
-                if (null != jdbcDbUrl) {
-                    jdbcUrlSettings.put("hibernate.connection.url", jdbcDbUrl);
-                }
-                standardServiceRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml")
-                        .applySettings(jdbcUrlSettings).build();
+//                String jdbcDbUrl = System.getenv("CLEARDB_DATABASE_URL");
+//                if (null != jdbcDbUrl) {
+//                    jdbcUrlSettings.put("hibernate.connection.url", jdbcDbUrl);
+//                }
+                standardServiceRegistry = new StandardServiceRegistryBuilder().configure()
+//                        .applySettings(jdbcUrlSettings)
+                        .build();
                 MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
                 Metadata metadata = metadataSources.getMetadataBuilder().build();
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
@@ -36,10 +38,6 @@ public class HibernateUtil {
                 StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
             }
         }
-
-    }
-
-    public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 //
