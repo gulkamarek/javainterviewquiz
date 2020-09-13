@@ -1,0 +1,4 @@
+connecting to github and CI for deployments and tests
+
+hide questions (user decide at the beginning if he wants it)
+selection of scope (java, spring, jsp, servlets, hibernate)

@@ -1,0 +1,8 @@
+/target
+/out
+/lib
+localConfigNotes.txt
+######### IDEA IntelliJ Project Config Files #########
+.idea
+*.iml
+*.iws

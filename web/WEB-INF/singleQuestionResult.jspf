@@ -1,0 +1,13 @@
+${i} ${question.question}<br>
+<c:forEach items="${question.answers}" var="answer">
+    <input type="checkbox" disabled="disabled" id="${question.id}answ${answer.id}" name="${question.id}answ${answer.id}"
+           vlaue="${question.id}answ${answer.id}"
+           <c:if test="${quizResult.checkCheckboxStatus(question,answer)}">checked</c:if>
+    />
+    <label for="${question.id}answ${answer.id}">
+        <span class="${quizResult.checkAnswerStatus(question,answer)}">
+                ${answer.answer}
+        </span>
+    </label><br>
+</c:forEach>
+<c:set var="i" value="${i+1}"/>
