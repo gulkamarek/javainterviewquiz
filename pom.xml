@@ -39,14 +39,14 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId> maven-war-plugin</artifactId>
-                <version>3.3.1</version>
-                <configuration>
-                    <webXml>web\WEB-INF\web.xml</webXml>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId> maven-war-plugin</artifactId>-->
+<!--                <version>3.3.1</version>-->
+<!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <webXml>web\WEB-INF\web.xml</webXml>&ndash;&gt;-->
+<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
