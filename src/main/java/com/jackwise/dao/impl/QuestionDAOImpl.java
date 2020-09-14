@@ -1,6 +1,5 @@
 package com.jackwise.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -18,7 +17,7 @@ public class QuestionDAOImpl implements QuestionDAO {
 
     private Transaction currentTransaction;
 
-    private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
     protected Session openCurrentSession() {
         return sessionFactory.openSession();
