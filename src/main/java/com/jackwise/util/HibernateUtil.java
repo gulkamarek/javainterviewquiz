@@ -2,12 +2,15 @@ package com.jackwise.util;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.Environment;
 
 public class HibernateUtil {
 
@@ -20,13 +23,28 @@ public class HibernateUtil {
         try {
             if (sessionFactory == null) {
 
-                Map<String,String> jdbcUrlSettings = new HashMap<>();
-//                String jdbcDbUrl = System.getenv("CLEARDB_DATABASE_URL");
+//                Map<String,String> jdbcUrlSettings = new HashMap<>();
+//                String jdbcDbUrl = "mysql://be2f8fdcb6f96a:f9d10806@eu-cdbr-west-03.cleardb.net/heroku_bd6c0e9717c772e";
+////                String jdbcDbUrl = System.getenv("CLEARDB_DATABASE_URL");
 //                if (null != jdbcDbUrl) {
 //                    jdbcUrlSettings.put("hibernate.connection.url", jdbcDbUrl);
 //                }
+                Configuration cfg = new Configuration();
+                Properties settings = new Properties();
+                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+                settings.put(Environment.URL, System.getenv("CLEARDB_URL"));
+                settings.put(Environment.USER, System.getenv("CLEARDB_USER"));
+                settings.put(Environment.PASS, System.getenv("CLEARDB_PASS"));
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
+                settings.put(Environment.SHOW_SQL, "true");
+                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+                settings.put(Environment.HBM2DDL_AUTO, "update");
+                settings.put(Environment.POOL_SIZE, "5");
+                cfg.setProperties(settings);
+                cfg.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
+
                 standardServiceRegistry = new StandardServiceRegistryBuilder().configure()
-//                        .applySettings(jdbcUrlSettings)
+                        .applySettings(cfg.getProperties())
                         .build();
                 MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
                 Metadata metadata = metadataSources.getMetadataBuilder().build();
