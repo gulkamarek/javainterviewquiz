@@ -31,17 +31,17 @@ public class HibernateUtil {
 //                }
                 Configuration cfg = new Configuration();
                 Properties settings = new Properties();
-                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+//                settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, System.getenv("CLEARDB_URL"));
                 settings.put(Environment.USER, System.getenv("CLEARDB_USER"));
                 settings.put(Environment.PASS, System.getenv("CLEARDB_PASS"));
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
-                settings.put(Environment.SHOW_SQL, "true");
-                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-                settings.put(Environment.HBM2DDL_AUTO, "update");
-                settings.put(Environment.POOL_SIZE, "5");
+//                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
+//                settings.put(Environment.SHOW_SQL, "true");
+//                settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+//                settings.put(Environment.HBM2DDL_AUTO, "update");
+//                settings.put(Environment.POOL_SIZE, "5");
                 cfg.setProperties(settings);
-                cfg.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
+//                cfg.setProperty("hibernate.temp.use_jdbc_metadata_defaults","false");
 
                 standardServiceRegistry = new StandardServiceRegistryBuilder().configure()
                         .applySettings(cfg.getProperties())

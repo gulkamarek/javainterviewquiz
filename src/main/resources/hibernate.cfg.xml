@@ -10,16 +10,13 @@
 <!--        <property name="connection.username">be2f8fdcb6f96a</property>-->
 <!--        <property name="connection.password">f9d10806</property>-->
 
-<!--        <property name="connection.pool_size">5</property>-->
-
-<!--        <property name="StartQuizServletdialect">org.hibernate.dialect.MySQL8Dialect</property>-->
-
-<!--        <property name="current_session_context_class">thread</property>-->
-<!--        <property name="show_sql">true</property>-->
-<!--        <property name="hibernate.temp.use_jdbc_metadata_defaults=false">false</property>-->
-
-<!--        &lt;!&ndash;<property name="format_sql">true</property>&ndash;&gt;-->
-<!--        <property name="hbm2ddl.auto">update</property>-->
+        <property name="connection.pool_size">5</property>
+        <property name="StartQuizServletdialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.temp.use_jdbc_metadata_defaults=false">false</property>
+        <!--<property name="format_sql">true</property>-->
+        <property name="hbm2ddl.auto">update</property>
 
         <mapping class="com.jackwise.model.Question"/>
         <mapping class="com.jackwise.model.Answer"/>
