@@ -5,8 +5,9 @@
 </head>
 <body>
 <h1>Java Quiz</h1>
+<h3>The application is being developed. This is only demo version.</h3>
 <form action="StartQuizServlet" method="post">
-    <br>How may questions do you want? <input type="text" name="questionsNumber"/>
+    <br>How may questions do you want? (Currently only 5 available)<input type="text" name="questionsNumber"/>
     <br><input type="submit" value="begin the quiz">
 </form>
 <br><br>
