@@ -1,6 +1,7 @@
-${i} ${question.question}<br>
+<b>${i}) ${question.question}</b><br>
 <c:forEach items="${question.answers}" var="answer">
     <input type="checkbox" id="${question.id}answ${answer.id}" name="${question.id}answ${answer.id}" vlaue="${question.id}answ${answer.id}"/>
     <label for="${question.id}answ${answer.id}">${answer.answer}</label><br>
 </c:forEach>
 <c:set var="i" value="${i+1}"/>
+<br>

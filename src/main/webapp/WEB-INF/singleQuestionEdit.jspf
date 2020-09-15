@@ -1,4 +1,4 @@
-<span style="float:left;"> ${i} ${question.question}</span>
+<span style="float:left;"> <b>${i}) ${question.question}</b></span>
 <form action="EditQuestionServlet" method="get" style="float:left;">
     <input type="hidden" name="questionId" value="${question.id}">
     <input type="submit" value="Edit">

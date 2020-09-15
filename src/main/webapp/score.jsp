@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Your Score is ${sessionScope.quizResult.score} %!</h1>
+<h1>Your Score is ${sessionScope.quizResult.score} %</h1>
 <form action="result.jsp">
     <input type="submit" value="See Results"/>
 </form>

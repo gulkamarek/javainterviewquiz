@@ -9,7 +9,7 @@ import com.jackwise.model.Question;
 
 public class QuizResult {
 
-    private final double score;
+    private final int score;
     private final Map<Question, Set<Answer>> selectedAnswersGroupedByQuestion;
 
     public QuizResult(Map<Question, Set<Answer>> selectedAnswersGroupedByQuestion) {
@@ -17,13 +17,14 @@ public class QuizResult {
         this.selectedAnswersGroupedByQuestion = selectedAnswersGroupedByQuestion;
     }
 
-    private double calculateScore(Map<Question, Set<Answer>> selectedAnswersGroupedByQuestion) {
+    private int calculateScore(Map<Question, Set<Answer>> selectedAnswersGroupedByQuestion) {
         double count = selectedAnswersGroupedByQuestion.entrySet().stream().filter(entry ->
                 entry.getValue().equals(entry.getKey().getCorrectAnswers())).count();
-        return (count * 100 / selectedAnswersGroupedByQuestion.entrySet().size());
+        Double score = count * 100 / selectedAnswersGroupedByQuestion.entrySet().size();
+        return score.intValue();
     }
 
-    public double getScore() {
+    public int getScore() {
         return score;
     }
 

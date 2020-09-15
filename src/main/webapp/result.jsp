@@ -6,7 +6,7 @@
     <title>Results</title>
 </head>
 <body>
-<h1>Your Score is ${sessionScope.quizResult.score} %!</h1>
+<h1>Your Score is ${sessionScope.quizResult.score} %</h1>
 <c:set var="i" value="${1}"/>
 <form action="index.jsp">
     <c:forEach items="${questions}" var="question">

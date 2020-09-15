@@ -1,4 +1,4 @@
-${i} ${question.question}<br>
+${i})<b> ${question.question}</b><br>
 <c:forEach items="${question.answers}" var="answer">
     <input type="checkbox" disabled="disabled" id="${question.id}answ${answer.id}" name="${question.id}answ${answer.id}"
            vlaue="${question.id}answ${answer.id}"
@@ -11,3 +11,4 @@ ${i} ${question.question}<br>
     </label><br>
 </c:forEach>
 <c:set var="i" value="${i+1}"/>
+<br>
