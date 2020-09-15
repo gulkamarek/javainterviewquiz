@@ -5,8 +5,10 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.jackwise.dao.QuestionDAO;
+import com.jackwise.model.Answer;
 import com.jackwise.model.Question;
 import com.jackwise.util.HibernateUtil;
 
@@ -81,5 +83,15 @@ public class QuestionDAOImpl implements QuestionDAO {
         List allQuestions = currentSession.createQuery("FROM " + Question.class.getSimpleName()).getResultList();
         closeCurrentSessionWithTransaction();
         return allQuestions;
+    }
+
+    @Override
+    public void deleteAll() {
+        openCurrentSessionWithTransaction();
+        Query deleteAnswers = currentSession.createQuery("DELETE FROM " + Answer.class.getSimpleName());
+        Query deleteQuestions = currentSession.createQuery("DELETE FROM " + Question.class.getSimpleName());
+        deleteAnswers.executeUpdate();
+        deleteQuestions.executeUpdate();
+        closeCurrentSessionWithTransaction();
     }
 }

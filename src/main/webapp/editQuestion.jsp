@@ -22,9 +22,17 @@
 <%--    </jsp:useBean>--%>
     <input type="hidden" name="questionId" value="${question.id}">
 </form>
+<br><br>
 
-<a href="index.jsp">Index</a><br><br>
-<a href="StartQuizServlet?questionsNumber=0">Back to questions list</a><br><br>
+<form action="index.jsp">
+    <input type="submit" value="Go back to main page"/>
+</form>
+<br><br>
+
+<form action="StartQuizServlet" method="get">
+    <input type="hidden" name="questionsNumber" value="0">
+    <input type="submit" value="Back to questions list">
+</form>
 
 </body>
 </html>

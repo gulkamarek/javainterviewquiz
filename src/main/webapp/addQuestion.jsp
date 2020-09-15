@@ -15,8 +15,11 @@
     </c:forEach>
     <br><input type="submit" value="Add Question">
 </form>
+<br><br>
 
-<a href="index.jsp">Index</a>
+<form action="index.jsp">
+    <input type="submit" value="Go back to main page"/>
+</form>
 
 </body>
 </html>

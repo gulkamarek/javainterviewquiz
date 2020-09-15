@@ -12,5 +12,5 @@ public interface QuestionDAO {
     public void delete(Long questionId);
     public Question findById(Long questionId);
     public List<Question> getAll();
-
+    public void deleteAll();
 }

@@ -8,6 +8,7 @@
     <input type="hidden" name="questionId" value="${question.id}">
     <input type="submit" value="Delete">
 </form>
+Topic: ${question.topic}<br>
 <c:forEach items="${question.answers}" var="answer">
     <input type="checkbox" disabled="disabled" id="${question.id}answ${answer.id}" name="${question.id}answ${answer.id}"
            vlaue="${question.id}answ${answer.id}"

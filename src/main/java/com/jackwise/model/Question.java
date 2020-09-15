@@ -27,12 +27,15 @@ public class Question {
     @Column(name = "CONTENT", nullable = false)
     private String question;
 
+    @Column(name = "TOPIC", nullable = false)
+    private String topic;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "ANSWER_ID")
     private Set<Answer> answers = new HashSet<>();
 
-    public Question(Long id, String question) {
-        this.id = id;
+    public Question(String question, String topic) {
+        this.topic = topic;
         this.question = question;
     }
 
@@ -64,11 +67,19 @@ public class Question {
         this.answers = answers;
     }
 
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
     public Set<Answer> getCorrectAnswers() {
         return this.answers.stream().filter(answer -> answer.getIsCorrect()).collect(Collectors.toSet());
     }
 
-    public void addAnswers(Answer answer) {
+    public void addAnswer(Answer answer) {
         this.answers.add(answer);
     }
 }

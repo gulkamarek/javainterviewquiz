@@ -41,8 +41,8 @@ public class QuestionsService {
     public Set<Question> getQuestions(int questionsNumber) {
 
         List<Question> allQuestions = questionDAO.getAll();
-        if(questionsNumber==0){
-            questionsNumber=allQuestions.size();
+        if (questionsNumber == 0) {
+            questionsNumber = allQuestions.size();
         }
         Set<Question> randomQuestions = getRandomElements(allQuestions, questionsNumber);
 
@@ -53,7 +53,7 @@ public class QuestionsService {
         Set<Question> randomQuestions = new HashSet<>();
         Set<Integer> randomNumbers = Stream.iterate(0, n -> n + 1).limit(questionsNumber).collect(Collectors.toSet());
 
-        for (int i:randomNumbers) {
+        for (int i : randomNumbers) {
             randomQuestions.add(allQuestions.get(i));
         }
         return randomQuestions;
@@ -64,7 +64,7 @@ public class QuestionsService {
         return new QuizResult(selectedAnswersGroupedByQuestion);
     }
 
-    public void addQuestion (Question question){
+    public void addQuestion(Question question) {
         questionDAO.persist(question);
     }
 
@@ -79,5 +79,15 @@ public class QuestionsService {
 
     public void delete(Long questionId) {
         questionDAO.delete(questionId);
+    }
+
+    public void persistAll(Set<Question> questions) {
+        for (Question q : questions) {
+            questionDAO.persist(q);
+        }
+    }
+
+    public void deleteAllQuestions() {
+        questionDAO.deleteAll();
     }
 }
