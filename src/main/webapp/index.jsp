@@ -6,6 +6,7 @@
 <body>
 <h1>Java Quiz</h1>
 <h3>The application is being developed. This is only demo version.</h3>
+<h4>I have some issues with DB connections. If you get exception related to DB just try again to perform the same operation.</h4>
 <form action="StartQuizServlet" method="post">
     <br>How may questions do you want? (Currently only 5 available)<input type="text" name="questionsNumber" value="3"/>
     <br><input type="submit" value="begin the quiz">
